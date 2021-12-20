@@ -1,4 +1,4 @@
-# A tuto to run tasks from anywhere
+# How to run tasks from anywhere
 > As a student in batch #722 (Paris, Oct.-Dec. 2021), i had a great experience remotely running tasks on my *home desktop* from my laptop *on campus*. 
 >
 > In particular, building a Docker image, downloading or uploading big files and training a neural network can be 10 times faster
