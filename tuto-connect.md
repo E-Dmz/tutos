@@ -4,14 +4,16 @@
 > In particular, building a Docker image, downloading or uploading big files and training a neural network can be 10 times faster
 >
 > I'd like to share the few tricks I learnt because it might interest some students in future batches or fellow freelancer alumni
+
 #### How you can help...
+- ...improving this content by giving your feedback or suggest additions
 - ...sharing this to students if you think it can help
-- ...making comments to improve this content
-- I litterally started from zero knowledge, so i will really appreciate you feedback id i'm missing something or if you know a better way
-- I'm missing some steps in SSH server/client setup (and also on *Optional WOL config*). If you're doing that setup from scratch, please note all the steps so that we can have the whole story
-- having this for another system
-- there's potentially further development to be made
-- I give credit to our TA Yassine for helping me a lot on this
+- Please tell what instructions are missing, not clear enough and if you try it, what does not work
+- I litterally started from zero knowledge, so i will really appreciate your feedback when i misunderstand something or if you know a better way.
+- I'm missing some steps in SSH server/client setup (and also on *Optional WOL config*). If you're doing it from scratch, please note all the steps so that we can have the whole story
+- I don't know how it scales to other OS
+- I give credit to our TA Yassine for showing me the magic of port forwarding
+- 
 #### About my setup
 - my desktop (2021) is a Linux Ubuntu with AMD Ryzen 5, 16 Gb RAM, MSI GeForce GTX 1650
 - my laptop (2019) is a Windows Surface Laptop 2 (2019) with Intel Core i5, 8 Gb RAM and 128 Gb ROM
@@ -36,10 +38,10 @@ Hurray! Now you can:
 - just remember you're not on your local `Terminal`
 - you may want to run multiple `Terminal`s in parallel
 - I usually launch `jupyter lab` and then run commands on `jupyter lab`'s `Terminal`
-- to run `jupyter lab` or any other server, all you need is: *Port forwarding* (next section) 
+- to run `jupyter lab` or any other service, all you need is: `Port forwarding` **(next section!)**
 
 ## SSH with Port forwarding 
-With the following command, you both connect to your desktop and redirect one desktop's port to one of your laptop's port. 
+With the following command, you both connect to your desktop and redirect a remote port to a local port. 
 ```bash
 # ssh login and port forwarding
 ssh <username>@<my_public_IP> -p<ssh_port> -L <source_port>:localhost:<destination_port>
@@ -53,26 +55,29 @@ ssh <username>@<my_public_IP> -p<ssh_port> -L <source_port>:localhost:<destinati
 # run jupyter lab and specify port 
 jupyter lab --port=8180
 ```
-As the local and distant port numbers are the same you can use the link or http://localhost:8180/lab directly
-
-With `jupyter lab`:
-- experience is identical when you're on a distant or local computer
-- with `jupyter lab`'s `Launcher`:
-    - you can use `Terminal` to run commands (`git`)
-    - you can use `Text File` for edition
-- most of all: you can easily transfer files from and to the distant computer
+- as the local and distant port numbers are the same, you can use the link displayed in the terminal or http://localhost:8180/lab (may need a password)
+- and voilà! The experience is identical on a distant or local computer
+- with `jupyter lab`'s you can:
+    - edit and run a notebook
+    - navigate in your file system
+    - use `Launcher`'s `Terminal` to run commands (`git`) or `Text File` for edition
+    - most of all: you can easily transfer files from (right-click and `Download`) and to (drag and drop) the distant computer
 
 ## Running other servers
-You can do several port redirection to launch different servers 
+You can do several port redirection to launch several servers 
 - `jupyter notebook` (that i sometimes for its shortcuts and overall UX)
-- `uvicorn` **(didn't test)**
+- `uvicorn` **(didn't try)**
 - `streamlit` **(didn't test)**
 
+## What you cannot do **(as far as I know)**
+- Use VS Code
+- `gcloud auth login`, `heroku login`?? **(didn't try)**
+
 ## The problem with public IPs...
-- ... is that they can change.
-- from your local network you can run: `curl ifconfig.me`
-- I do not know a way to know a public IP from the outside world... you may need DynDNS for this **(didn't test)**
-- with a NAS remote user interface you can run a command that writes the IP address to a file **(didn't test)**
+- ... is that they can change. I had that bitter experience on the one but last day of the project.
+- From your local network you can always run: `curl ifconfig.me`
+- But I do not know a way get your public IP from the outside world... you may need DynDNS for this **(didn't try)**
+- with a NAS remote user interface you can run a command that writes the IP address to a file **(didn't try)**
 
 ## Optional: WOL
 - Required only if you want to remotely switch on your desktop. 
