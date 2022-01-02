@@ -76,9 +76,10 @@ You can launch several servers... just SSH multiple time with ditinct port redir
 - `streamlit` **(didn't test)**
 
 ## What you cannot do **(as far as I know)**
-- Use VS Code
+- Use VSCode
 - `gcloud auth login`, `heroku login`?? **(didn't try)**
-- you're welcome to prove me wrong on this
+- with `heroku` you have a `IP address mismatch` error
+- but with `gcloud`, you can authenticate! 
 
 ## The real problem with public IPs...
 - ...is that from time to time, it is changed by your ISP. 
