@@ -137,7 +137,6 @@ alias cxstreamlit="ssh ${USERNAME_DESKTOP}@${PUBLIC_IP_HOME} -p${PORT_SSH_DESKTO
 ```bash
 # ~/.zshrc on DESKTOP
 ## (echo "this" >> ~/.zshrc)
-## 
 
 ##################################
 ### CONNECT CONFIGURATION
