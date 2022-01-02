@@ -1,7 +1,7 @@
 # How to run tasks from anywhere
-> As a student in batch #722 (Paris, Oct.-Dec. 2021), i had a great experience remotely running tasks on my *home desktop* from my laptop *on campus*. 
+> As a student in Le Wagon `data science` batch #722 (Paris, Oct.-Dec. 2021), i had a great experience remotely running tasks on my *home desktop* from my laptop *on campus*. 
 >
-> In particular, building a Docker image, downloading or uploading big files (Week 7) and training a neural network (W6 and Project) can be 10 times faster.
+> In particular, it can be 10 times faster on `Week 7` and `project`, when you build a Docker image, download or upload big files and on `Week 6` and `project`, when you train a neural network.
 >
 > I'd like to share the few tricks I learnt from scratch because i think it might be of interest for some students in future batches and fellow freelancer alumni.
 
