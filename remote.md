@@ -126,10 +126,10 @@ export PORT_LAB=8890
 export PORT_API=5000
 export PORT_STREAMLIT=8000
 
-alias cxnotebook="cx-desktop -p${PORT_SSH_DESKTOP} -L ${PORT_NOTEBOOK}:localhost:${PORT_NOTEBOOK}"
-alias cxlab="cx-desktop -p${PORT_SSH_DESKTOP} -L ${PORT_LAB}:localhost:${PORT_LAB}"
-alias cxapi="cx-desktop -p${PORT_SSH_DESKTOP} -L ${PORT_API}:localhost:${PORT_API}"
-alias cxstreamlit="cx-desktop -p${PORT_SSH_DESKTOP} -L ${PORT_STREAMLIT}:localhost:${PORT_STREAMLIT}"
+alias cxnotebook="ssh ${USERNAME_DESKTOP}@${PUBLIC_IP_HOME} -p${PORT_SSH_DESKTOP} -L ${PORT_NOTEBOOK}:localhost:${PORT_NOTEBOOK}"
+alias cxlab="ssh ${USERNAME_DESKTOP}@${PUBLIC_IP_HOME} -p${PORT_SSH_DESKTOP} -L ${PORT_LAB}:localhost:${PORT_LAB}"
+alias cxapi="ssh ${USERNAME_DESKTOP}@${PUBLIC_IP_HOME} -p${PORT_SSH_DESKTOP} -L ${PORT_API}:localhost:${PORT_API}"
+alias cxstreamlit="ssh ${USERNAME_DESKTOP}@${PUBLIC_IP_HOME} -p${PORT_SSH_DESKTOP} -L ${PORT_STREAMLIT}:localhost:${PORT_STREAMLIT}"
 
 ##################################
 ```
@@ -137,6 +137,7 @@ alias cxstreamlit="cx-desktop -p${PORT_SSH_DESKTOP} -L ${PORT_STREAMLIT}:localho
 ```bash
 # ~/.zshrc on DESKTOP
 ## (echo "this" >> ~/.zshrc)
+## 
 
 ##################################
 ### CONNECT CONFIGURATION
@@ -147,8 +148,8 @@ export PORT_LAB=8890
 export PORT_STREAMLIT=8000
 export PORT_API=5000
 
-alias jncx="jupyter lab --port=${PORT_NOTEBOOK}"
-alias jlcx="jupyter lab --port=${PORT_NOTEBOOK}"
+alias cxnotebook="jupyter notebook --port=${PORT_NOTEBOOK}"
+alias cxlab="jupyter lab --port=${PORT_LAB}"
 
 ##################################
 ```
