@@ -15,23 +15,29 @@
 - I give credit to our TA Yassine for showing me the magic of port forwarding
 
 #### About my setup
-- my desktop (2021) is a Linux Ubuntu with AMD Ryzen 5, 16 Gb RAM, MSI GeForce GTX 1650
-- my laptop (2019) is a Windows Surface Laptop 2 (2019) with Intel Core i5, 8 Gb RAM and 128 Gb ROM
+- desktop (2021): a Linux Ubuntu with AMD Ryzen 5, 16 Gb RAM, MSI GeForce GTX 1650
+- laptop (2019): a Windows Surface Laptop 2 (2019) with Intel Core i5, 8 Gb RAM and 128 Gb ROM
+- Le Wagon's [Data Science Bootcamp Setup](https://github.com/lewagon/data-setup) on both
 - i also have a NAS server Synology DS720+ (2021) that I use to remotely switch on my desktop (see the `Optional: WOL` section)
-- my internet box is a Livebox 3 (ISP Orange)
+- internet box: Orange Livebox 3
 
 ## SSH Setup on your desktop
-- First of all, you need to setup a SSH Client/Server on your desktop: I followed [these instructions](https://phoenixnap.com/kb/ssh-to-connect-to-remote-server-linux-or-windows). 
-- You also need configured NAT/PAT rules on my Orange Box and change the ssh port (default 22).
+- You need to setup a SSH Client/Server on your desktop
+- I followed [these instructions](https://phoenixnap.com/kb/ssh-to-connect-to-remote-server-linux-or-windows). 
+- I had to configure NAT/PAT rules on the internet box
+- It's safe to change the ssh port (default 22).
 
 ## Remote-control your desktop with ssh
 - Your desktop must be on 
 - Optional: if you want to remotely switch on your desktop, what you need is WOL (Wake On LAN). See the `Optional: WOL` section.
+- Just type this command your laptop's Terminal:
 ```bash
 # ssh login to desktop
 ssh <username>@<my_public_IP> -p<ssh_port>
-# hurray! now you're on your desktop shell 
+# enter your password...
 ```
+- Hurray! now you're seeing your desktop's Terminal *inside* your laptop's Terminal 
+- (all the fancy formatting of `oh my sosh!` is lost)
 
 ## What you can do once you're connected
 - anything you're used to do from a terminal
@@ -77,9 +83,8 @@ You can launch several servers... just SSH multiple time with ditinct port redir
 
 ## What you cannot do **(as far as I know)**
 - Use VSCode
-- `gcloud auth login`, `heroku login`?? **(didn't try)**
-- with `heroku` you have a `IP address mismatch` error
-- but with `gcloud`, you can authenticate! 
+- i tried to `heroku login` but there's a `IP address mismatch` error in the browser
+- but with `gcloud auth login`, yes you can authenticate! 
 
 ## The real problem with public IPs...
 - ...is that from time to time, it is changed by your ISP. 
