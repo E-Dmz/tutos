@@ -5,12 +5,16 @@
 >
 > I'd like to share the few tricks I learnt from scratch, as it might be of interest for students in future batches and fellow freelancer alumni.
 
-#### Table of contents
+#### Table of contents 
+<!--
+move this to blog and/or tuto: 
+https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents/33433098#introduction
+-->
 1. [How you can help](#how-you-can-help)
 2. [About my setup](#about-my-setup)
 3. [Setup SSH on your desktop](#setup-ssh-on-your-desktop)
-4. [Remote control your desktop with SSH](#remote-control-your-desktop-with-SSH)
-5. [What you can do once you're connected](#what-you-can-do-once-you-re-connected)
+4. [Remote control your desktop with SSH](#remote-control-your-desktop-with-ssh)
+5. [What you can do once you're connected](#what-you-can-do-once-youre-connected)
 6. [SSH with Port forwarding](#ssh-with-port-forwarding)
 ...
 
