@@ -1,24 +1,36 @@
 # How to run tasks from anywhere
-> As a student in Le Wagon `data science` batch #722 (Paris, Oct.-Dec. 2021), i had a great experience remotely running tasks on my ***home* desktop PC** from my ***on campus* laptop PC**. 
+> As a student at Le Wagon `data science` (batch #722, Paris, Oct.-Dec. 2021), i had a great experience remotely running tasks on my ***home* desktop PC** from my ***on campus* laptop PC**. 
 >
 > In particular, it could be **10 times faster** for building or pushing a Docker image, for downloading or uploading big files (on `Week 7` and `project`), or for training or running big models.
 >
 > I'd like to share the few tricks I learnt from scratch, as it might be of interest for students in future batches and fellow freelancer alumni.
+>
+> ***[Spoiler alert!]*** So far, Jupyter (at home) is exactly [ `cxlab` + `password` + `cxlab` + `Ctrl + click` ] away from your laptop.
 
 #### Table of contents 
 <!--
 move this to blog and/or tuto: 
 https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents/33433098#introduction
+
+AND MAKE A PARSER to automate this MD TOC (can be a 
 -->
 1. [How you can help](#how-you-can-help)
 2. [About my setup](#about-my-setup)
-3. [Setup SSH on your desktop](#setup-ssh-on-your-desktop)
-4. [Remote control your desktop with SSH](#remote-control-your-desktop-with-ssh)
-5. [What you can do once you're connected](#what-you-can-do-once-youre-connected)
-6. [SSH with Port forwarding](#ssh-with-port-forwarding)
+3. [How to... setup SSH](#how-to-setup-ssh)
+4. [How to... SSH](#how-to-ssh)
+5. [What you can do once you're SSH-ed](#what-you-can-do-once-youre-ssh-ed)
+6. [How to... SSH with port forwarding](#how-to-ssh-with-port-forwarding)
+7. [How to... run a Jupyter lab service]()
+8. [How to... run other services]()
+9. [What you cannot do]()
+10. [What do you think of this]()
+11. [The issue with public IPs...]()
+12. [Optional: WOL]()
+13. [Optional: Aliases, Environment variables and Makefile]()
+
 ...
 
-#### How you can help
+#### 1. How you can help
 - ...improve this content by giving your feedback or suggest additions
 - ...share this to students if you think it can help
 - ...tell me what instructions are missing, what is not clear enough and if you try it, what does not work
@@ -34,14 +46,14 @@ https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-
 - i also have a NAS server Synology DS720+ (2021) that I use to remotely switch on my desktop (see the `Optional: WOL` section)
 - internet box: Orange Livebox 3
 
-## How to setup SSH on your desktop
-- You need to setup a SSH Client/Server on your desktop
+## How to setup SSH
+- You need to setup a SSH Client/Server on your desktop PC
 - I followed [these instructions](https://phoenixnap.com/kb/ssh-to-connect-to-remote-server-linux-or-windows)
 - You're welcome to list the precise set of steps if you do it, so that we improve this tuto 
 - I also had to configure NAT/PAT rules on the internet box
 - It's recommanded to change the SSH port (default 22).
 
-## How to SSH to your desktop
+## How to SSH
 - Your desktop must be on 
 - Optional: if you want to remotely switch on your desktop, what you need is WOL (Wake On LAN). See the `Optional: WOL` section.
 - Just type this command your laptop's Terminal:
@@ -66,7 +78,7 @@ ssh <username>@<my_public_IP> -p<ssh_port>
     - i launch `jupyter lab` **(next section!)**
     - then i run my commands on `jupyter lab`'s `Terminal`
 
-## How to SSH with Port forwarding 
+## How to SSH with port forwarding 
 - With the following command, you ssh to your desktop and redirect a remote (desktop) `source port` to a local (laptop) `destination port`. 
 ```bash
 # ssh login and port forwarding
@@ -101,11 +113,12 @@ You can launch several services... just SSH multiple time with ditinct port redi
 - ... but you can `gcloud auth login`, which is pretty cool if you want to push a Docker image to GCP 
 
 ## What do you think of this?
-- personnaly i am quite happy with this
-- there's 
+- well, personally i find this very handy
+- would you like some benchmarking? a screencast demo?
+- there are some flaws too
 
-## But the real problem with public IPs...
-- ...is that from time to time, it is changed by your ISP. 
+## The issue with public IPs...
+- ...is that from time to time, it is changed by your Internet Service Provider
 - i had that bitter experience on the *one but last* day of the project.
 - at home, you can always run: `curl ifconfig.me`...
 - i do not know a way get your public IP from the outside world... you may need DynDNS for this **(don't know)**
@@ -135,8 +148,10 @@ sudo synonet --wake <MAC_address> eth0
 - I had to set up a "broadband over power line (BPL)" = *"courant porteur de ligne (CPL)"* because you can't WOL with Wi-Fi
 - I remember having a hard time setting up WOL. Inspiration came from [this page](https://help.ubuntu.com/community/WakeOnLan) and/or [this one](https://necromuralist.github.io/posts/enabling-wake-on-lan/) and/or one of the other numerous. It may differ from one computer to another, but if you do this from scratch, it's worth noting every step in order to complete that tuto  
 
-## Optional: Environment variables and Makefile
-With this setup, jupyter lab is just [`cxlab command` + `password` + `cxlab command` + `Ctrl + click`] away from your laptop PC!
+## Optional: Aliases, Environment variables and Makefile
+With this setup, jupyter is just [ `cxlab` + `password` + `cxlab` + `Ctrl + click` ] away from your laptop!
+
+### On your LAPTOP
 ```bash
 # ~/.zshrc on LAPTOP
 ## copy-paste this at the end of  ~/.zshrc ***on LAPTOP PC***
@@ -163,6 +178,8 @@ alias cxstreamlit="ssh ${USERNAME_DESKTOP}@${PUBLIC_IP_HOME} -p${PORT_SSH_DESKTO
 
 ##################################
 ```
+
+### Same with echo >>
 ```bash
 # OR run this:
 
@@ -192,7 +209,7 @@ alias cxstreamlit=\"ssh \${USERNAME_DESKTOP}@\${PUBLIC_IP_HOME} -p\${PORT_SSH_DE
 
 " >> ~/.zshrc
 ```
-
+### On your DESKTOP
 ```bash
 # ~/.zshrc on DESKTOP
 ## copy-paste this at the end of  ~/.zshrc ***on DESKTOP PC***
@@ -211,6 +228,8 @@ alias cxlab="jupyter lab --port=${PORT_LAB}"
 
 ##################################
 ```
+
+### Same with echo >>
 ```bash
 # OR run this ***on LAPTOP PC***
 
@@ -231,7 +250,8 @@ alias cxlab=\"jupyter lab --port=\${PORT_LAB}\"
 ##################################
 " >> ~/.zshrc
 ```
-
+### Makefiles
+#### Streamlit project
 **didn't try this**
 ```Makefile
 # Makefile on desktop (streamlit project folder)
@@ -243,3 +263,4 @@ run_api-cx:
     uvicorn my_api.fast:app --reload --port ${PORT_API}
 ```
 
+#### Docker project
