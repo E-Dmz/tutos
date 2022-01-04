@@ -124,10 +124,10 @@ sudo synonet --wake <MAC_address> eth0
 - I remember having a hard time setting up WOL. Inspiration came from [this page](https://help.ubuntu.com/community/WakeOnLan) and/or [this one](https://necromuralist.github.io/posts/enabling-wake-on-lan/) and/or one of the other numerous. It may differ from one computer to another, but if you do this from scratch, it's worth noting every step in order to complete that tuto  
 
 ## Optional: Environment variables and Makefile
-Note: **I didn't test this, and i really don't know if it's worth it**
+With this setup, jupyter lab is just [`cxlab command` + `password` + `cxlab command` + `Ctrl + click`] away from your laptop PC!
 ```bash
 # ~/.zshrc on LAPTOP
-## (echo "this" >> ~/.zshrc)
+## copy-paste this at the end of  ~/.zshrc ***on LAPTOP PC***
 
 ##################################
 ### CONNECT CONFIGURATION
@@ -151,10 +151,39 @@ alias cxstreamlit="ssh ${USERNAME_DESKTOP}@${PUBLIC_IP_HOME} -p${PORT_SSH_DESKTO
 
 ##################################
 ```
+```bash
+# OR run this:
+
+echo "
+
+##################################
+### CONNECT CONFIGURATION
+##################################
+
+export USERNAME_DESKTOP=XXXXXX
+export PUBLIC_IP_HOME=XXX.XXX.XXX.XXX
+export PORT_SSH_DESKTOP=XXXX
+
+alias cxdesktop=\"ssh \${USERNAME_DESKTOP}@\${PUBLIC_IP_HOME} -p\${PORT_SSH_DESKTOP}"
+
+export PORT_NOTEBOOK=8880
+export PORT_LAB=8890
+export PORT_API=5000
+export PORT_STREAMLIT=8000
+
+alias cxnotebook=\"ssh \${USERNAME_DESKTOP}@\${PUBLIC_IP_HOME} -p\${PORT_SSH_DESKTOP} -L \${PORT_NOTEBOOK}:localhost:\${PORT_NOTEBOOK}\"
+alias cxlab=\"ssh \${USERNAME_DESKTOP}@\${PUBLIC_IP_HOME} -p\${PORT_SSH_DESKTOP} -L \${PORT_LAB}:localhost:\${PORT_LAB}\"
+alias cxapi=\"ssh \${USERNAME_DESKTOP}@\${PUBLIC_IP_HOME} -p\${PORT_SSH_DESKTOP} -L \${PORT_API}:localhost:\${PORT_API}\"
+alias cxstreamlit=\"ssh \${USERNAME_DESKTOP}@\${PUBLIC_IP_HOME} -p\${PORT_SSH_DESKTOP} -L \${PORT_STREAMLIT}:localhost:\${PORT_STREAMLIT}\"
+
+##################################
+
+" >> ~/.zshrc
+```
 
 ```bash
 # ~/.zshrc on DESKTOP
-## (echo "this" >> ~/.zshrc)
+## copy-paste this at the end of  ~/.zshrc ***on DESKTOP PC***
 
 ##################################
 ### CONNECT CONFIGURATION
@@ -170,8 +199,28 @@ alias cxlab="jupyter lab --port=${PORT_LAB}"
 
 ##################################
 ```
+```bash
+# OR run this ***on LAPTOP PC***
 
+echo "
 
+##################################
+### CONNECT CONFIGURATION
+##################################
+
+export PORT_NOTEBOOK=8880
+export PORT_LAB=8890
+export PORT_STREAMLIT=8000
+export PORT_API=5000
+
+alias cxnotebook=\"jupyter notebook --port=\${PORT_NOTEBOOK}\"
+alias cxlab=\"jupyter lab --port=\${PORT_LAB}\"
+
+##################################
+" >> ~/.zshrc
+```
+
+**didn't try this**
 ```Makefile
 # Makefile on desktop (streamlit project folder)
 run_streamlit_cx:
