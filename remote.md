@@ -1,11 +1,20 @@
 # How to run tasks from anywhere
-> As a student in Le Wagon `data science` batch #722 (Paris, Oct.-Dec. 2021), i had a great experience remotely running tasks on my *home desktop* from my laptop *on campus*. 
+> As a student in Le Wagon `data science` batch #722 (Paris, Oct.-Dec. 2021), i had a great experience remotely running tasks on my ***home** desktop* from my ***on campus* laptop**. 
 >
-> In particular, it can be 10 times faster on `Week 7` and `project`, when you build a Docker image, download or upload big files and on `Week 6` and `project`, when you train a neural network.
+> In particular, it could be **10 times faster** for building or pushing a Docker image, for downloading or uploading big files (on `Week 7` and `project`), or for training or running big models.
 >
-> I'd like to share the few tricks I learnt from scratch because i think it might be of interest for some students in future batches and fellow freelancer alumni.
+> I'd like to share the few tricks I learnt from scratch, as it might be of interest for students in future batches and fellow freelancer alumni.
 
-#### How you can help...
+#### Table of contents
+1. [How you can help](#how-you-can-help)
+2. [About my setup](#about-my-setup)
+3. [Setup SSH on your desktop](#setup-ssh-on-your-desktop)
+4. [Remote control your desktop with SSH](#remote-control-your-desktop-with-SSH)
+5. [What you can do once you're connected](#what-you-can-do-once-you-re-connected)
+6. [SSH with Port forwarding](#ssh-with-port-forwarding)
+...
+
+#### How you can help
 - ...improve this content by giving your feedback or suggest additions
 - ...share this to students if you think it can help
 - ...tell me what instructions are missing, what is not clear enough and if you try it, what does not work
@@ -21,13 +30,13 @@
 - i also have a NAS server Synology DS720+ (2021) that I use to remotely switch on my desktop (see the `Optional: WOL` section)
 - internet box: Orange Livebox 3
 
-## SSH Setup on your desktop
+## Setup SSH on your desktop
 - You need to setup a SSH Client/Server on your desktop
 - I followed [these instructions](https://phoenixnap.com/kb/ssh-to-connect-to-remote-server-linux-or-windows). 
 - I had to configure NAT/PAT rules on the internet box
 - It's safe to change the ssh port (default 22).
 
-## Remote-control your desktop with ssh
+## Remote control your desktop with SSH
 - Your desktop must be on 
 - Optional: if you want to remotely switch on your desktop, what you need is WOL (Wake On LAN). See the `Optional: WOL` section.
 - Just type this command your laptop's Terminal:
