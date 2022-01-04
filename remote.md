@@ -1,5 +1,5 @@
 # How to run tasks from anywhere
-> As a student in Le Wagon `data science` batch #722 (Paris, Oct.-Dec. 2021), i had a great experience remotely running tasks on my ***home** desktop* from my ***on campus* laptop**. 
+> As a student in Le Wagon `data science` batch #722 (Paris, Oct.-Dec. 2021), i had a great experience remotely running tasks on my ***home* desktop PC** from my ***on campus* laptop PC**. 
 >
 > In particular, it could be **10 times faster** for building or pushing a Docker image, for downloading or uploading big files (on `Week 7` and `project`), or for training or running big models.
 >
@@ -28,19 +28,20 @@ https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-
 - I give credit to our TA Yassine for showing me the magic of port forwarding
 
 #### About my setup
-- desktop (2021): a Linux Ubuntu with AMD Ryzen 5, 16 Gb RAM, MSI GeForce GTX 1650
-- laptop (2019): a Windows Surface Laptop 2 (2019) with Intel Core i5, 8 Gb RAM and 128 Gb ROM
+- desktop PC (2021): a Linux Ubuntu with AMD Ryzen 5, 16 Gb RAM, MSI GeForce GTX 1650
+- laptop PC (2019): a Windows Surface Laptop 2, Intel Core i5, 8 Gb RAM and 128 Gb ROM
 - Le Wagon's [Data Science Bootcamp Setup](https://github.com/lewagon/data-setup) on both
 - i also have a NAS server Synology DS720+ (2021) that I use to remotely switch on my desktop (see the `Optional: WOL` section)
 - internet box: Orange Livebox 3
 
-## Setup SSH on your desktop
+## How to setup SSH on your desktop
 - You need to setup a SSH Client/Server on your desktop
-- I followed [these instructions](https://phoenixnap.com/kb/ssh-to-connect-to-remote-server-linux-or-windows). 
-- I had to configure NAT/PAT rules on the internet box
-- It's safe to change the ssh port (default 22).
+- I followed [these instructions](https://phoenixnap.com/kb/ssh-to-connect-to-remote-server-linux-or-windows)
+- You're welcome to list the precise set of steps if you do it, so that we improve this tuto 
+- I also had to configure NAT/PAT rules on the internet box
+- It's recommanded to change the SSH port (default 22).
 
-## Remote control your desktop with SSH
+## How to SSH to your desktop
 - Your desktop must be on 
 - Optional: if you want to remotely switch on your desktop, what you need is WOL (Wake On LAN). See the `Optional: WOL` section.
 - Just type this command your laptop's Terminal:
@@ -49,10 +50,10 @@ https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-
 ssh <username>@<my_public_IP> -p<ssh_port>
 # enter your password...
 ```
-- Hurray! now you're seeing your desktop's Terminal *inside* your laptop's Terminal 
+- ***Hurray!*** now you're seeing your desktop PC's `Terminal` ***inside*** your laptop PC's `Terminal` 
 - (all the fancy formatting of `oh my sosh!` is lost)
 
-## What you can do once you're connected
+## What you can do once you're SSH-ed
 - anything you're used to do from a terminal
 - notably `cd`, `cat`, `curl`, `git`, `heroku`, `docker`, `gcloud`, `pip install`, `shutdown`, etc.
 - just remember you're not on your local `Terminal`
@@ -65,7 +66,7 @@ ssh <username>@<my_public_IP> -p<ssh_port>
     - i launch `jupyter lab` **(next section!)**
     - then i run my commands on `jupyter lab`'s `Terminal`
 
-## SSH with Port forwarding 
+## How to SSH with Port forwarding 
 - With the following command, you ssh to your desktop and redirect a remote (desktop) `source port` to a local (laptop) `destination port`. 
 ```bash
 # ssh login and port forwarding
@@ -74,7 +75,7 @@ ssh <username>@<my_public_IP> -p<ssh_port> -L <source_port>:localhost:<destinati
 - using the same port number on both your laptop and your desktop will make your life easier
 - if you lose connection or put your laptop on sleep without ending the connection with `Ctrl+D`, strange things will happen and you may need to connect via another port and/or wait a bit before it works.
 
-## Running a Jupyter lab server
+## How to run a Jupyter lab service
 ```bash
 # run jupyter lab and specify the port you've just chosen
 jupyter lab --port=<source_port>
@@ -87,8 +88,8 @@ jupyter lab --port=<source_port>
     - use `Launcher`'s `Terminal` to run commands (`git`) or `Text File` for edition
     - most of all: **you can easily transfer files** ***from*** your desktop (right-click and `Download`) and ***to*** your desktop (drag and drop).
 
-## Running other servers
-You can launch several servers... just SSH multiple time with ditinct port redirection:  
+## How to run other services
+You can launch several services... just SSH multiple time with ditinct port redirection:  
 - `jupyter notebook` (with its friendly shortcuts and nbextensions)
 - `uvicorn` **(didn't try)**
 - `docker run`
@@ -97,14 +98,25 @@ You can launch several servers... just SSH multiple time with ditinct port redir
 ## What you cannot do **(as far as I know)**
 - Use VSCode
 - i tried to `heroku login` but there's a `IP address mismatch` error in the browser
-- but with `gcloud auth login`, yes you can authenticate! 
+- ... but you can `gcloud auth login`, which is pretty cool if you want to push a Docker image to GCP 
 
-## The real problem with public IPs...
+## What do you think of this?
+- personnaly i am quite happy with this
+- there's 
+
+## But the real problem with public IPs...
 - ...is that from time to time, it is changed by your ISP. 
 - i had that bitter experience on the *one but last* day of the project.
-- at home, you can always run: `curl ifconfig.me`
-- i do not know a way get your public IP from the outside world... you may need DynDNS for this **(didn't try)**
-- ...with my NAS server, i can always connect to a smart user interface and run a command that writes the IP address to a file (or have it sent by mail!), which is very handy
+- at home, you can always run: `curl ifconfig.me`...
+- i do not know a way get your public IP from the outside world... you may need DynDNS for this **(don't know)**
+- ...Synology's `Quickconnect` service always gives access to my NAS so that I can:
+    - run the command below, with the NAS Manager's `Task scheduler` > `User-defined script`> `Run`
+    - (this writes the IP address to a file)
+    - open the file
+```bash
+echo >> /var/services/homes/edmz/Scripts/IP.txt
+curl ifconfig.me >> /var/services/homes/edmz/Scripts/IP.txt
+```
 
 ## Optional: WOL
 - Wake On LAN if you want to remotely switch on your desktop (the motherboard can always recognize a *magic packet* and wake up on this) 
