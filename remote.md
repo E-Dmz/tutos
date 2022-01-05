@@ -14,8 +14,6 @@ https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-
 
 AND MAKE A PARSER to automate this MD TOC (can be a 
 -->
-1. [How you can help](#how-you-can-help)
-2. [About my setup](#about-my-setup)
 3. [How to... setup SSH](#how-to-setup-ssh)
 4. [How to... SSH](#how-to-ssh)
 5. [What you can do once you're SSH-ed](#what-you-can-do-once-youre-ssh-ed)
