@@ -25,7 +25,7 @@ AND MAKE A PARSER to automate this MD TOC (can be a
 9. [The issue with public IPs...](#the-issue-with-public-ips)
 10. [Optional: WOL](#optional-wol)
 11. [Optional: Set aliases, environment variables](#optional-set-aliases-environment-variables)
-12. [Optional: Set Makefile, Dockerfile...](optional-set-makefile-dockerfile)
+12. [Optional: Set Makefile, Dockerfile...](#optional-set-makefile-dockerfile)
 13. [How you can help](how-you-can-help)
 
 ...
