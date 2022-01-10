@@ -16,7 +16,7 @@ AND MAKE A PARSER to automate this MD TOC (can be a
 -->
 1. [About the setup i used](#about-the-setup-i-used)
 2. [How to setup SSH](#how-to-setup-ssh)
-3. [How to connect (SSH)](#how-to-ssh)
+3. [How to connect (SSH)](#how-to-connect-ssh)
 4. [What you can do once you're connected](#what-you-can-do-once-youre-connected)
 5. [How to connect with port forwarding ](#how-to-connect-with-port-forwarding)
 6. [How to run Jupyter lab](#how-to-run-jupyter-lab)
@@ -24,8 +24,8 @@ AND MAKE A PARSER to automate this MD TOC (can be a
 8. [What you cannot do, yet](#what-you-cannot--do-yet)
 9. [The issue with public IPs...](#the-issus-with-public-ips)
 10. [Optional: WOL](#optional-wol)
-11. [Optional: Set aliases, environment variables](#optional-set-aliases--environment-variables)
-12. [Optional: Set Makefile, Dockerfile...](optional-set-makefile--dockerfile)
+11. [Optional: Set aliases, environment variables](#optional-set-aliases-environment-variables)
+12. [Optional: Set Makefile, Dockerfile...](optional-set-makefile-dockerfile)
 13. [How you can help](how-you-can-help)
 
 ...
