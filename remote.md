@@ -22,7 +22,7 @@ AND MAKE A PARSER to automate this MD TOC (can be a
 6. [How to run Jupyter lab](#how-to-run-jupyter-lab)
 7. [How to run other services](#how-to-run-other-services)
 8. [What you cannot do, yet](#what-you-cannot--do-yet)
-9. [The issue with public IPs...](#the-issus-with-public-ips)
+9. [The issue with public IPs...](#the-issue-with-public-ips)
 10. [Optional: WOL](#optional-wol)
 11. [Optional: Set aliases, environment variables](#optional-set-aliases-environment-variables)
 12. [Optional: Set Makefile, Dockerfile...](optional-set-makefile-dockerfile)
