@@ -21,7 +21,7 @@ AND MAKE A PARSER to automate this MD TOC (can be a
 5. [How to connect with port forwarding ](#how-to-connect-with-port-forwarding)
 6. [How to run Jupyter lab](#how-to-run-jupyter-lab)
 7. [How to run other services](#how-to-run-other-services)
-8. [What you cannot do, yet](#what-you-cannot--do-yet)
+8. [What you cannot do, yet](#what-you-cannot-do-yet)
 9. [The issue with public IPs...](#the-issue-with-public-ips)
 10. [Optional: WOL](#optional-wol)
 11. [Optional: Set aliases, environment variables](#optional-set-aliases-environment-variables)
@@ -98,7 +98,7 @@ You can launch several services... just SSH multiple time with ditinct port redi
 - `docker run`
 - `streamlit` **(didn't test)**
 
-## What you cannot do **(as far as I know)**
+## What you cannot do, yet
 - Use VSCode
 - i tried to `heroku login` but there's a `IP address mismatch` error in the browser
 - ... but you can `gcloud auth login`, which is pretty cool if you want to push a Docker image to GCP 
