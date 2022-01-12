@@ -1,4 +1,4 @@
-# How to run tasks from anywhere
+# Run tasks from anywhere
 > As a student at Le Wagon `data science` (batch #722, Paris), i started to run tasks remotely on my ***home* desktop PC** from my ***on campus* laptop PC**. 
 >
 > I found it could be **10 times faster** for building or pushing a Docker image, for downloading or uploading big files (on `Week 7` and `project`), or for training or running big models.
@@ -135,12 +135,10 @@ sudo synonet --wake <MAC_address> eth0
 - I remember having a hard time setting up WOL. Inspiration came from [this page](https://help.ubuntu.com/community/WakeOnLan) and/or [this one](https://necromuralist.github.io/posts/enabling-wake-on-lan/) and/or one of the other numerous. It may differ from one computer to another, but if you do this from scratch, it's worth noting every step in order to complete that tuto!
 
 ## Optional: Set aliases, environment variables
-With the following setup, i just need [ `cxlab` + `password` + `cxlab` + `Ctrl + click` ] to connect jupyter lab!
+With the following setup, i just need [ `cxlab` + `password` + `cxlab` + `Ctrl + click` ] to connect to Jupyter lab!
 
-### Add the following lines to .zshrc on your LAPTOP:
+### Copy-paste the following lines at the end of `~/.zshrc` on `LAPTOP PC`
 ```bash
-# ~/.zshrc on LAPTOP
-## copy-paste this at the end of  ~/.zshrc ***on your LAPTOP PC***
 
 ##################################
 ### CONNECT CONFIGURATION
@@ -167,8 +165,6 @@ alias cxstreamlit="ssh ${USERNAME_DESKTOP}@${PUBLIC_IP_HOME} -p${PORT_SSH_DESKTO
 
 ### Alternatively, use `echo >>`:
 ```bash
-# OR run this:
-
 echo "
 
 ##################################
@@ -192,13 +188,10 @@ alias cxapi=\"ssh \${USERNAME_DESKTOP}@\${PUBLIC_IP_HOME} -p\${PORT_SSH_DESKTOP}
 alias cxstreamlit=\"ssh \${USERNAME_DESKTOP}@\${PUBLIC_IP_HOME} -p\${PORT_SSH_DESKTOP} -L \${PORT_STREAMLIT}:localhost:\${PORT_STREAMLIT}\"
 
 ##################################
-
 " >> ~/.zshrc
 ```
-### Add the following lines to .zshrc on your on your DESKTOP
+### Copy-paste the following lines at the end of `~/.zshrc` on `DESKTOP PC`
 ```bash
-# ~/.zshrc on DESKTOP
-## copy-paste this at the end of  ~/.zshrc ***on DESKTOP PC***
 
 ##################################
 ### CONNECT CONFIGURATION
@@ -215,10 +208,8 @@ alias cxlab="jupyter lab --port=${PORT_LAB}"
 ##################################
 ```
 
-### Alternatively, use `echo >>`:
+### Alternatively, use `echo >>`
 ```bash
-# OR run this ***on LAPTOP PC***
-
 echo "
 
 ##################################
