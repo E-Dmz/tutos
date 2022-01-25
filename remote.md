@@ -251,3 +251,34 @@ run_api-cx:
 - I'm missing some steps in SSH server/client setup (and also on *Optional WOL config*). If you start doing it from scratch, please note all the steps so that we can have the whole story
 - I don't know how it transposes to other OS
 - I'm thankful to our TA Yassine for showing me the magic of port forwarding
+
+
+## Jupyter service
+- set up a password with jupyter lab password. Which stores the hashed value into a config file
+- `code jupyter.service`
+```init
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+Type=simple
+PIDFile=/run/jupyter.pid
+ExecStart=/home/user/.pyenv/shims/jupyter lab --port=8890 --notebook-dir=/home/user/folder --no-browser
+User=user
+Group=user
+WorkingDirectory=/home/user/folder
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+- then `sudo mv jupyter.service /etc/systemd/system/`
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable jupyter
+sudo systemctl start jupyter
+# to check:
+sudo systemctl status jupyter
+```
+[Everything there](https://janakiev.com/blog/jupyter-systemd/)
