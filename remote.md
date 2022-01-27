@@ -1,9 +1,9 @@
 # Run tasks from anywhere
-> As a student at Le Wagon `data science` (batch #722, Paris), i started to run tasks remotely on my ***home* desktop PC** from my ***on campus* laptop PC**. 
+> As a student at the Le Wagon Data Science bootcamp (batch #722, Paris), i started to run tasks remotely on my ***home* desktop PC** from my ***on campus* laptop PC**. 
 >
-> I found it could be **10 times faster** for building or pushing a Docker image, for downloading or uploading big files (on `Week 7` and `project`), or for training or running big models.
+> I found out it could be **10 times faster** for building or pushing a Docker image, for downloading or uploading big files, or for training or running big models (on `Week 7` and `Project Weeks`).
 >
-> I'd like to share the few tricks I learnt from scratch, as it might be of interest for students in future batches and fellow freelancer alumni.
+> I'd like to share the few tricks that I learnt from scratch, as it might be of interest for students in future batches and fellow freelancer alumni.
 >
 > Using aliases, connecting to my Jupyter lab is now as simple as [ `cxlab` + `password` + `cxlab` + `Ctrl + click` ].
 
